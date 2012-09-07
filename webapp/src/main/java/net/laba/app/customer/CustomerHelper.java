@@ -12,6 +12,7 @@ import java.util.GregorianCalendar;
  *
  * @author Rafael
  */
+
 public class CustomerHelper {
     private Integer ageCalcResult;
     private Customer customer;

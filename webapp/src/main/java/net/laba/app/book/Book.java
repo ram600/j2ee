@@ -5,6 +5,7 @@
 
 package net.laba.app.book;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,7 +17,7 @@ import javax.persistence.Id;
  
 @Entity
 //@NamedQuery(name="findAllBooks",query="SELECT b FROM Book b")
-public class Book {
+public class Book implements Serializable {
 
     @Id @GeneratedValue
     private Long id;

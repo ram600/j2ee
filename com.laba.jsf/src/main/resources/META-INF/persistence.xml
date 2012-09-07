@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+    xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="mk-library" transaction-type="JTA">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+<!--        <jta-data-source>pool</jta-data-source>-->
+        <properties>
+            <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="eclipselink.target-database" value="MySQL" />
+            <property name="eclipselink.jdbc.url" value="jdbc:mysql://192.168.25.73/hibernate" />
+            <property name="eclipselink.jdbc.user" value="r2" />
+            <property name="eclipselink.jdbc.password" value="domodomo1" />
+            <property name="eclipselink.ddl-generation" value="create-tables" />
+            <property name="eclipselink.logging.level" value="INFO" />
+        </properties>
+    </persistence-unit>
+</persistence>

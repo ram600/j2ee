@@ -4,14 +4,14 @@
   <groupId>com.laba</groupId>
   <artifactId>com.laba.jsf</artifactId>
   <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <name>com.laba.jsf Maven Webapp</name>
   <url>http://maven.apache.org</url>
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <glassfish.home>/home/admin/glassfish3/glassfish</glassfish.home>
+    <glassfish.home>/home/linux/glassfish3/glassfish</glassfish.home>
     <glassfish.user>admin</glassfish.user>
-    <glassfish.adminPassword>admin</glassfish.adminPassword>
+    <glassfish.adminPassword>ADMIN</glassfish.adminPassword>
   </properties>
 
 
@@ -104,10 +104,11 @@
                 <version>2.1</version>
                 <configuration>
                     <glassfishDirectory>${glassfish.home}</glassfishDirectory>
-                    <user>admin</user>
-                    <adminPassword>admin</adminPassword>
+                    <user>${glassfish.user}</user>
+                    <adminPassword>${glassfish.adminPassword}</adminPassword>
                     <debug>true</debug>
                     <echo>true</echo>
+                    <autoCreate>true</autoCreate>
                     <domain>
                         <name>project.lan</name>
                         <adminPort>4848</adminPort>

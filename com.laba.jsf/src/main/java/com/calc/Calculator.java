@@ -33,7 +33,10 @@ public class Calculator {
   public void clear() {
     result = 0;
   }
-
+/** Операция деления */
+    public void divide() {
+       this.result = this.firstNumber / this.secondNumber;
+    }
   /* ---------- свойства ------------- */
 
     public Calculator() {

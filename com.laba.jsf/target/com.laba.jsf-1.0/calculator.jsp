@@ -12,36 +12,45 @@
 </head>
 <body>
 <f:view>
-  
+    <h:messages infoClass="infoClass" errorClass="errorClass"
+            layout="table" globalOnly="true"/>
     <h:form id="calcForm">
   <h4>Calculator</h4>
     <h:panelGrid columns="3" rowClasses="oddRow,evenRow" styleClass="formGrid">
+       <!--???? ??????-->
+      <h:commandLink action="CALCULATOR" value="Calculator Application" />
+      <h:commandLink action="CALCULATOR_REDIRECT" value="Calculator Application (redirect)" />
+      <h:outputLink value="faces/calculator.jsf">
+            <h:outputText value="Calculator Application (outputlink)"/>
+       </h:outputLink>
+
       <%-- First Number--%>
       <h:outputLabel value="First Number" for="firstNumber" />
-      <h:inputText id="firstNumber"
-        value="#{calculator.firstNumber}" required="true" />
-      <h:message for="firstNumber" />
+      <h:inputText id="firstNumber" binding="#{calculatorController.firstNumberInput}"
+        value="#{calculatorController.calculator.firstNumber}"  required="true"  />
+      <h:message for="firstNumber" showSummary="true" showDetail="false"/>
       <%-- Second Number--%>
       <h:outputLabel value="Second Number" for="secondNumber" />
       <h:inputText id="secondNumber"
-        value="#{calculator.secondNumber}" required="true" />
-      <h:message for="secondNumber" />
+        value="#{calculatorController.calculator.secondNumber}" binding="#{calculatorController.secondNumberInput}" required="true" />
+      <h:message for="secondNumber" showSummary="true" showDetail="false"/>
    </h:panelGrid>
     <div>
 
-      <h:commandButton action="#{calculator.add}"  value="Add" />
-      <h:commandButton action="#{calculator.multiply}"  value="Multiply" />
-      <h:commandButton action="#{calculator.clear}"  value="Clear" immediate="true"/>
+      <h:commandButton action="#{calculatorController.add}"  value="Add" />
+      <h:commandButton action="#{calculatorController.multiply}"  value="Multiply" />
+      <h:commandButton action="#{calculatorController.clear}"  value="Clear" immediate="true"/>
+      <h:commandButton action="HOME" value="Home" immediate="true"/>
     </div>
 
   </h:form>
 
-  <h:panelGroup rendered="#{calculator.result != 0}">
+  <h:panelGroup binding="#{calculatorController.resultsPanel}" >
     <h4>Results</h4>
    <h:panelGrid columns="1">
-      <h:outputText value="First Number  #{calculator.firstNumber}"/>
-      <h:outputText value="Second Number #{calculator.secondNumber}"/>
-      <h:outputText value="Result  #{calculator.result}"/>
+      <h:outputText value="First Number  #{calculatorController.calculator.firstNumber}"/>
+      <h:outputText value="Second Number #{calculatorController.calculator.secondNumber}"/>
+      <h:outputText value="Result  #{calculatorController.calculator.result}"/>
   </h:panelGrid>
   </h:panelGroup>
 </f:view>

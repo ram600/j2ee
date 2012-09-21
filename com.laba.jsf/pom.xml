@@ -9,10 +9,11 @@
   <url>http://maven.apache.org</url>
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <glassfish.home>/home/linux/glassfish3/glassfish</glassfish.home>
+    <glassfish.home>/home/admin/glassfish3/glassfish</glassfish.home>
     <glassfish.user>admin</glassfish.user>
-    <glassfish.adminPassword>ADMIN</glassfish.adminPassword>
-  </properties>
+    <glassfish.adminPassword>admin</glassfish.adminPassword>
+    <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
+</properties>
 
 
   <repositories>

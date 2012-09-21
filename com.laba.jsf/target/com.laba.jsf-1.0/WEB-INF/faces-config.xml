@@ -6,9 +6,56 @@
      http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
      version="1.2">
   <managed-bean>
-    <managed-bean-name>calculator</managed-bean-name>
-    <managed-bean-class>com.calc.Calculator</managed-bean-class>
-    <managed-bean-scope>request</managed-bean-scope>
+      <managed-bean-name>calculator</managed-bean-name>
+      <managed-bean-class>com.calc.Calculator</managed-bean-class>
+      <managed-bean-scope>none</managed-bean-scope>
   </managed-bean>
+  
+  <managed-bean>
+    <managed-bean-name>calculatorController</managed-bean-name>
+    <managed-bean-class>com.calc.CalculatorController</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    <managed-property>
+        <property-name>calculator</property-name>
+        <value>#{calculator}</value>
+    </managed-property>
+  </managed-bean>
+
+  <navigation-rule>
+   
+    <navigation-case>
+        <from-outcome>CALCULATOR</from-outcome>
+        <to-view-id>/faces/calculator.jsp</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>CALCULATOR_REDIRECT</from-outcome>
+        <to-view-id>/faces/calculator.jsp</to-view-id>
+        <redirect/>   
+    </navigation-case>
+  </navigation-rule>
+  
+  <navigation-rule>
+        <display-name>Calculator View</display-name>
+        <from-view-id>/faces/calculator.jsp</from-view-id>
+        <navigation-case>
+            <from-outcome>results</from-outcome>
+            <to-view-id>/faces/results.jsp</to-view-id>
+        </navigation-case>
+   </navigation-rule>
+   <navigation-rule>
+       <navigation-case>
+           <from-outcome>HOME</from-outcome>
+           <from-action>/home.jsp</from-action>
+           <redirect/>
+       </navigation-case>
+   </navigation-rule>
+
+   
+
+  
+
+  <application>
+        <message-bundle>messages</message-bundle>
+  </application>
 
 </faces-config>
